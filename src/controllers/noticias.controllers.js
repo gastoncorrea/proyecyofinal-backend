@@ -32,4 +32,30 @@ noticiaCtrl.nuevaNoticia = async (req,res)=>{
     }
 }
 
+    noticiaCtrl.listarNoticias = async (req,res)=>{
+        try{
+            const arregloNoticias = await Noticia.find();
+            res.status(200).json(arregloNoticias);
+        }catch(e){
+            console.log(e);
+            res.status(404).json({
+                mensaje: "no se puedo obtener los productos"
+            })
+        }
+    }
+
+    noticiaCtrl.eliminarNoticia = async (req,res) => {
+        try{
+            console.log(req.params);
+            await Noticia.findByIdAndDelete(req.params.id);
+            res.status(200).json({
+                mensaje: "Se pudo eliminar noticia"
+            });
+        }catch(e){
+            console.log(e);
+            res.status(404).json({
+                mensaje: "No se pudo eliminar la noticia"
+            })
+        }
+    }
 export default noticiaCtrl;
