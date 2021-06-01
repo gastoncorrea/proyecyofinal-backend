@@ -3,6 +3,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import path from 'path';
 import './database.js';
+import noticiaRouter from './routes/noticias.routes';
 
 const app = express();
 app.set('port', process.env.PORT || 4001);
@@ -17,6 +18,4 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname,'../public')));
 
 // rutas
-app.get('/',(req,res)=>{
-    res.send('hola esta es una prueba del backend');
-})
+app.use('/noticias', noticiaRouter);
