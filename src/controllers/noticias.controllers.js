@@ -58,4 +58,18 @@ noticiaCtrl.nuevaNoticia = async (req,res)=>{
             })
         }
     }
+
+    noticiaCtrl.editarNoticia = async (req,res)=>{
+        try{
+            const noticiaBuscada = await Noticia.findByIdAndUpdate(req.params.id,req.body);
+            res.status(200).json({
+                mensaje: "el producto fue modificado"
+            });
+        }catch(e){
+            console.log(e);
+            res.status(404).json({
+                mensaje: "No se puedo modificar la noticia"
+            });
+        }
+    }
 export default noticiaCtrl;

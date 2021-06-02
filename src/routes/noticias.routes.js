@@ -10,6 +10,6 @@ router
   .get(noticiaCtrl.listarNoticias)
   .post(noticiaCtrl.nuevaNoticia);
 
-router.route("/:id").delete(noticiaCtrl.eliminarNoticia);
+router.route("/:id").delete(noticiaCtrl.eliminarNoticia).put(noticiaCtrl.editarNoticia);
 
 export default router;
