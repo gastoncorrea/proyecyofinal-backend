@@ -72,4 +72,15 @@ noticiaCtrl.nuevaNoticia = async (req,res)=>{
             });
         }
     }
+    noticiaCtrl.obtenerNoticia = async (req,res)=>{
+        try{
+            const productoBuscado = await Noticia.findById(req.params.id);
+            res.status(200).json(productoBuscado);
+        }catch(e){
+            console.log(e);
+            res.status(404).json({
+                mensaje: "No se pudo encontrar la noticia"
+            });
+        }
+    }
 export default noticiaCtrl;
