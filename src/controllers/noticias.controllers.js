@@ -22,7 +22,7 @@ noticiaCtrl.nuevaNoticia = async (req,res)=>{
 
         await noticiaCreada.save();
         res.status(201).json({
-            mensaje: "producto agregado correctamente"
+            mensaje: "noticia agregado correctamente"
         })
     }catch(e){
         console.log(e);

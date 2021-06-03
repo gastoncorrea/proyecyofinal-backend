@@ -5,7 +5,7 @@ const noticiaSchema = new Schema({
         type: String,
         required: true,
         unique: true,
-        maxlength: 120
+        maxlength: 200
     },
     subtitulo:{
         type: String,
@@ -21,13 +21,13 @@ const noticiaSchema = new Schema({
         type: String,
         required: true,
         unique: true,
-        maxlength: 2000
+        maxlength: 9000
     },
     link:{
         type: String,
         required: true,
         unique: true,
-        maxlength: 120
+        maxlength: 200
     },
     autor:{
         type: String,

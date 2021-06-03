@@ -1,5 +1,7 @@
 import { Router } from "express";
 import noticiaCtrl from "../controllers/noticias.controllers";
+import usuarioCtrl from '../controllers/usuarios.controllers';
+
 
 // crear ruta
 
@@ -16,4 +18,5 @@ router
   .put(noticiaCtrl.editarNoticia)
   .get(noticiaCtrl.obtenerNoticia);
 
+router.route("/:id/suscripcion").post(usuarioCtrl.nuevoUsuario)
 export default router;
