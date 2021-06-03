@@ -18,5 +18,5 @@ router
   .put(noticiaCtrl.editarNoticia)
   .get(noticiaCtrl.obtenerNoticia);
 
-router.route("/:id/suscripcion").post(usuarioCtrl.nuevoUsuario)
+router.route("/:id/suscripcion").post(usuarioCtrl.nuevoUsuario).get(usuarioCtrl.listarUsuario)
 export default router;

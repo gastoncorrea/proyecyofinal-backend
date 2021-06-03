@@ -24,4 +24,16 @@ usuarioCtrl.nuevoUsuario = async (req,res) => {
 }
 }
 
+usuarioCtrl.listarUsuario = async (req,res)=>{
+    try{
+        const arregloUsuario =  await Usuario.find();
+        res.status(200).json(arregloUsuario);
+    }catch(e){
+        console.log(e);
+            res.status(404).json({
+                mensaje: "no se puedo obtener los productos"
+            })
+    }
+}
+
 export default usuarioCtrl;
